@@ -1,7 +1,7 @@
 import styles from "./ToDoItems.module.css";
 import ToDoItem from "./ToDoItem";
 
-const ToDoItems = ({ todoItemsProps }) => {
+const ToDoItems = ({ todoItemsProps, onDeleteClick }) => {
   return (
     <>
       {" "}
@@ -11,6 +11,7 @@ const ToDoItems = ({ todoItemsProps }) => {
             key={item}
             todoName={item.name}
             todoDate={item.dueDate}
+            onDeleteClick={onDeleteClick}
           ></ToDoItem>
         ))}
       </div>
