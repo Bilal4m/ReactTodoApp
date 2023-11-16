@@ -20,7 +20,6 @@ function App() {
       (item) => item.name !== deletedItemName
     );
     setTodoItems(newTodoItems);
-    console.log(`Delete item: ${deletedItemName}`);
   };
   return (
     <center className="todo-container">

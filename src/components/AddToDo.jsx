@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { IoIosAddCircle } from "react-icons/io";
 
 function AddToDo({ onNewItem }) {
   const [todoName, setTodoName] = useState("");
@@ -11,14 +12,15 @@ function AddToDo({ onNewItem }) {
   const handleDueDate = (event) => {
     setDueDate(event.target.value);
   };
-  const handleAddButtonClicked = () => {
+  const handleAddButtonClicked = (event) => {
+    event.preventDefault();
     onNewItem(todoName, dueDate);
     setTodoName("");
     setDueDate("");
   };
   return (
     <div className="container text-center">
-      <div className="row my-row">
+      <form className="row my-row" onSubmit={handleAddButtonClicked}>
         <div className="col-6">
           <input
             type="text"
@@ -31,15 +33,11 @@ function AddToDo({ onNewItem }) {
           <input type="date" onChange={handleDueDate} value={dueDate} />
         </div>
         <div className="col-1">
-          <button
-            type="button"
-            className="btn btn-success my-btn"
-            onClick={handleAddButtonClicked}
-          >
-            Add
+          <button className="btn btn-success my-btn">
+            <IoIosAddCircle />
           </button>
         </div>
-      </div>
+      </form>
     </div>
   );
 }
