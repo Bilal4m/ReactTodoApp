@@ -8,7 +8,7 @@ const ToDoItems = ({ todoItemsProps, onDeleteClick }) => {
       <div className={styles.itemsContainer}>
         {todoItemsProps.map((item) => (
           <ToDoItem
-            key={item}
+            key={item.name}
             todoName={item.name}
             todoDate={item.dueDate}
             onDeleteClick={onDeleteClick}
